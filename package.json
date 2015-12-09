@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "authentic-ui",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -18,8 +18,11 @@
     "build": "browserify index.js | uglifyjs -mc > public/main.js",
     "test": "standard"
   },
-  "keywords": [],
-  "author": "Tyler Bushnell <wunderlinks@gmail.com>",
+  "keywords": ["authentication", "authentic", "auth"],
+  "contributors": [
+    "David Guttman <david@guttman.io>",
+    "Tyler Bushnell <wunderlinks@gmail.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
     "authentic-server": "^0.4.0",

@@ -1,7 +1,7 @@
-var SimpleSignup = require('..')
+var AuthenticUI = require('..')
 var qs = require('querystring')
 
-var ss = SimpleSignup({
+var aui = AuthenticUI({
   server: 'http://localhost:1337',
   links: {
     signup: '#/signup',
@@ -48,7 +48,7 @@ function signupRoute (el) {
     subject: 'Welcome!'
   }
 
-  var form = ss.signup(opts)
+  var form = aui.signup(opts)
   el.appendChild(form)
 }
 
@@ -61,7 +61,7 @@ function confirmRoute (el) {
     confirmDelay: 5000
   }
 
-  var conf = ss.confirm(opts, onLogin)
+  var conf = aui.confirm(opts, onLogin)
   el.appendChild(conf)
 }
 
@@ -71,7 +71,7 @@ function onLogin (err, result) {
 }
 
 function protectedRoute (el) {
-  if (ss.authToken()) {
+  if (aui.authToken()) {
     el.innerHTML = 'You\'re logged in'
   } else {
     el.innerHTML = 'Not logged in! Redirecting...'
@@ -82,15 +82,15 @@ function protectedRoute (el) {
 }
 
 function loginRoute (el) {
-  if (ss.authToken()) return window.location.hash = '/protected'
+  if (aui.authToken()) return window.location.hash = '/protected'
 
-  var form = ss.login(onLogin)
+  var form = aui.login(onLogin)
   el.appendChild(form)
 
 }
 
 function logoutRoute (el) {
-  ss.logout()
+  aui.logout()
   el.innerHTML = 'You are logged out. Redirecting...'
   setTimeout(function () {
     window.location.hash = '/login'
@@ -104,7 +104,7 @@ function changePasswordRequestRoute (el) {
     subject: 'Change Your Password!'
   }
 
-  var form = ss.changePasswordRequest(opts)
+  var form = aui.changePasswordRequest(opts)
   el.appendChild(form)
 }
 
@@ -116,7 +116,7 @@ function changePasswordRoute (el, appState) {
     confirmDelay: 5000
   }
 
-  var conf = ss.changePassword(opts, onLogin)
+  var conf = aui.changePassword(opts, onLogin)
   el.appendChild(conf)
 }
 
