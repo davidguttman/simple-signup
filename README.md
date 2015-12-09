@@ -71,6 +71,8 @@ document.body.appendChild(
   })
 )
 
+// Log Out
+ss.logout() // instant
 
 ```
 
@@ -168,6 +170,9 @@ var el = ss.changePassword({
 })
 ```
 
+### ss.logout() ###
+
+Instantly logs out by forgetting user `email` and `authToken`.
 
 ## License ##
 
