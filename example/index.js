@@ -37,7 +37,7 @@ function runRoutes (el) {
   if (appState === 'change-password-request') return changePasswordRequestRoute(el)
   if (appState.match(/^change-password/)) return changePasswordRoute(el)
 
-  return signupRoute(el)
+  return loginRoute(el)
 }
 
 function signupRoute (el) {
